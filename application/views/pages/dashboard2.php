@@ -20,9 +20,9 @@
 			        <h3><?= $data['nama']?></h3>
 			        <p>NIM: <?= $data['nim']?></p>
 			        <p class="text-center">
-			        	<a href="<?= base_url()?>dashboard/detail/<?= $data['nim']?>" class="btn btn-primary" role="button">Lihat Nilai</a> 
-			        	<a href="<?= base_url()?>dashboard/edit_mahasiswa/<?= $data['nim']?>" class="btn btn-warning" role="button">Edit</a> 
-			        	<a href="<?= base_url()?>dashboard/delete_mahasiswa/<?= $data['nim']?>" class="btn btn-danger" role="button" onclick="return confirm('Yakin Ingin Mengapus Data?')">Hapus</a></p>
+			        	<a href="<?= base_url()?>mahasiswa/detail/<?= $data['nim']?>" class="btn btn-primary" role="button">Lihat Nilai</a> 
+			        	<a href="<?= base_url()?>mahasiswa/edit_mahasiswa/<?= $data['nim']?>" class="btn btn-warning" role="button">Edit</a> 
+			        	<a href="<?= base_url()?>mahasiswa/delete_mahasiswa/<?= $data['nim']?>" class="btn btn-danger" role="button" onclick="return confirm('Yakin Ingin Mengapus Data?')">Hapus</a></p>
 			      </div>
 			    </div>
 			  </div>
