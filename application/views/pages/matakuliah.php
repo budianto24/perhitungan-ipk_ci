@@ -1,15 +1,7 @@
 <div class="container">
 
-		<?= $this->session->flashdata('flash')?>
-
-	<div class="row">
-		<div class="col-md-3">
-			<div class="btn-group" role="group" aria-label="...">
-			  <a href="<?= base_url()?>dashboard" class="btn btn-default"><span class="glyphicon glyphicon-th-list"></span></a>
-			  <a href="<?= base_url()?>dashboard/grid" class="btn btn-default"><span class="glyphicon glyphicon-th"></span></a>
-			</div>
-		</div>
-	</div><br>
+		<?= $this->session->flashdata('flash')?>	
+		
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table table-bordered" id="table">

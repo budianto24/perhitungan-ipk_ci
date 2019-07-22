@@ -25,6 +25,15 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
+	public function grid()
+	{
+		$data['mahasiswa'] = $this->M_mahasiswa->getAllData();
+
+		$this->load->view('templates/header');
+		$this->load->view('pages/dashboard2', $data);
+		$this->load->view('templates/footer');
+	}
+
 
 	public function search(){
 			$keyword = $this->input->get('keyword', true);
