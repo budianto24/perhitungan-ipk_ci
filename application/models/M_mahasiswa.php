@@ -5,14 +5,21 @@ class M_mahasiswa extends CI_Model {
 
 	public function getAllData()
 	{
-		$query = $this->db->get('tb_mahasiswa');
-		return $query->result_array();
+		$this->db->select('*');
+		$this->db->from('tb_mahasiswa');
+		$this->db->join('tb_fakultas', 'tb_fakultas.kode_fakultas=tb_mahasiswa.kode_fakultas', 'left');
+		$this->db->join('tb_prodi', 'tb_prodi.kode_prodi=tb_mahasiswa.kode_prodi', 'left');
+		return $this->db->get()->result_array();
 	}
 
 	public function getDataByNim($nim)
 	{
-		$query = $this->db->query("SELECT * FROM tb_mahasiswa WHERE nim = $nim");
-		return $query->row_array();
+		$this->db->select('*');
+		$this->db->from('tb_mahasiswa');
+		$this->db->join('tb_fakultas', 'tb_fakultas.kode_fakultas=tb_mahasiswa.kode_fakultas', 'left');
+		$this->db->join('tb_prodi', 'tb_prodi.kode_prodi=tb_mahasiswa.kode_prodi', 'left');
+		$this->db->where('nim',$nim);
+		return $this->db->get()->row_array();
 	}
 
 	public function getDataSearch($keyword){
@@ -24,7 +31,7 @@ class M_mahasiswa extends CI_Model {
 	}
 
 
-	public function tambahDataMahasiswa()
+	public function addDataMahasiswa()
 	{
 		$config['upload_path']          = './assets/img/mahasiswa';
 	    $config['allowed_types']        = 'jpg|png|jpeg';
@@ -43,11 +50,11 @@ class M_mahasiswa extends CI_Model {
 		}
 
 		$data = [
-			"nim"    	=> $this->input->post('nim', true),
-			"nama"    	=> $this->input->post('nama', true),
-			"fakultas"	=> $this->input->post('fakultas', true),
-			"prodi"		=> $this->input->post('prodi', true),
-			"gambar"    => $picture,
+			"nim"    		=> $this->input->post('nim', true),
+			"nama" 		   	=> $this->input->post('nama', true),
+			"kode_fakultas"	=> $this->input->post('fakultas', true),
+			"kode_prodi"	=> $this->input->post('prodi', true),
+			"gambar"    	=> $picture,
 		];
 		$this->db->insert('tb_mahasiswa', $data);
 	}
@@ -75,18 +82,18 @@ class M_mahasiswa extends CI_Model {
 	    }
 
 		$data = [
-			"nim"    	=> $this->input->post('nim', true),
-			"nama"    	=> $this->input->post('nama', true),
-			"fakultas"	=> $this->input->post('fakultas', true),
-			"prodi"		=> $this->input->post('prodi', true),
-			"gambar"    => $picture,
+			"nim"	    	=> $this->input->post('nim', true),
+			"nama"  	  	=> $this->input->post('nama', true),
+			"kode_fakultas"	=> $this->input->post('fakultas', true),
+			"kode_prodi"	=> $this->input->post('prodi', true),
+			"gambar"    	=> $picture,
 		];
 		$this->db->where('nim', $this->input->post('nim'));
 		$this->db->update('tb_mahasiswa', $data);
 	}
 
 
-	public function deleteMahasiswa($nim)
+	public function deleteDataMahasiswa($nim)
 	{
 		$this->db->where('nim', $nim);
 		$this->db->delete('tb_mahasiswa');

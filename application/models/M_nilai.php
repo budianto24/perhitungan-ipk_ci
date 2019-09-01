@@ -15,7 +15,7 @@ class M_nilai extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function tambahDataNilai()
+	public function addDataNilai()
 	{
 		$data = [
 			"nim"    		 => $this->input->post('nim', true),
@@ -35,7 +35,7 @@ class M_nilai extends CI_Model {
 		$this->db->update('tb_nilai', $data);
 	}
 
-	public function hapusDataNilai($id)
+	public function deleteDataNilai($id)
 	{
 		$this->db->where('id', $id);
 		$this->db->delete('tb_nilai');

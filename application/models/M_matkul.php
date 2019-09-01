@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_matkul extends CI_Model{
 	
-	public function getAllMatkul()
+	public function getAllData()
 	{
 		$this->db->select('*')->from('tb_matkul')->order_by('nama_matkul','ASC');
 		$query = $this->db->get();
@@ -19,7 +19,7 @@ class M_matkul extends CI_Model{
 	}
 
 
-	public function add_matkul()
+	public function addDataMatkul()
 	{
 		$data = [
 			"kode_matkul" => $this->input->post('kode_matkul', true),
@@ -30,7 +30,8 @@ class M_matkul extends CI_Model{
 		$this->db->insert('tb_matkul', $data);
 	}
 
-	public function edit_matkul($kode_matkul)
+
+	public function editDataMatkul($kode_matkul)
 	{
 		$data = [			
 			"nama_matkul" => $this->input->post('nama_matkul', true),
@@ -39,6 +40,13 @@ class M_matkul extends CI_Model{
 
 		$this->db->where('kode_matkul', $kode_matkul);
 		$this->db->update('tb_matkul', $data);
+	}
+
+
+	public function deleteDataMatkul($kode_matkul)
+	{
+		$this->db->where('kode_matkul', $kode_matkul);
+		$this->db->delete('tb_matkul');
 	}
 
 }

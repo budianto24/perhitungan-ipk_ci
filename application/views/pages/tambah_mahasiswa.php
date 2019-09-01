@@ -13,23 +13,35 @@
 			</div>
 			<?= form_open_multipart()?>
 			  <div class="form-group">
-			    <label for="exampleInputPassword1">NIM</label>
-			    <input type="text" class="form-control" placeholder="ketik disini.." name="nim"">
+			    <label for="exampleInputPassword1">NIM*</label>
+				<input type="text" class="form-control" placeholder="ketik disini.." name="nim"">
+				<small><?php echo form_error('nim'); ?></small>
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleInputPassword1">Nama</label>
-			    <input type="text" class="form-control" placeholder="ketik disini.." name="nama"">
+			    <label for="exampleInputPassword1">Nama*</label>
+				<input type="text" class="form-control" placeholder="ketik disini.." name="nama"">
+				<small><?php echo form_error('nama'); ?></small>
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleInputPassword1">Fakultas</label>
-			    <input type="text" class="form-control" placeholder="ketik disini.." name="fakultas"">
+			    <label>Fakultas</label>
+			    <select class="form-control" name="fakultas">
+						<option value="">--Pilih--</option>
+					<?php foreach($fakultas as $f):?>
+						<option value="<?= $f['kode_fakultas']?>"><?= $f['nama_fakultas']?></option>
+					<?php endforeach;?>
+				</select>
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleInputPassword1">Prodi</label>
-			    <input type="text" class="form-control" placeholder="ketik disini.." name="prodi"">
+			    <label>Prodi</label>
+			    <select class="form-control" name="prodi">
+					<option value="">--Pilih--</option>
+					<?php foreach($prodi as $p):?>
+						<option value="<?= $p['kode_prodi']?>"><?= $p['nama_prodi']?></option>
+					<?php endforeach;?>
+				</select>
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleInputPassword1">Foto</label>
+			    <label>Foto</label><br>
 			    <input type="file" class="" placeholder="ketik disini.." name="gambar"">
 			  </div>
 			  <div class="form-group">

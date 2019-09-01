@@ -1,24 +1,32 @@
 <div class="container">
-	<div class="page-header">
-  		<h3>
-  			Menampilkan hasil untuk "<font color="blue"><?= $this->input->get('keyword');?></font>"
-  			<small class="pull-right"><?= count($list);?> Data yang ditemukan</small>
-  		</h3>
-	</div>
+		<div class="card mb-4">
+			<div class="card-body">
+					<h5 class="mb-0">
+						Menampilkan hasil untuk "<font color="blue"><?= $this->input->get('keyword');?></font>"
+						<small class="float-right"><b><?= count($list);?></b> data yang ditemukan</small>
+					</h5>
+			</div>
+		</div>
 
 		<?php if (count($list)>0) {?>
 			<div class="row">
 				<?php foreach ($list as $data) :?>
-					 <div class="col-sm-6 col-md-3">
-					    <div class="thumbnail">
-					      <img src="<?= base_url()?>assets/img/default.jpg" class="img-thumbnail" width="150px">
-					      <div class="caption">
-					        <h3><?= $data['nama']?></h3>
-					        <p>NIM: <?= $data['nim']?></p>
-					        <p><a href="<?= base_url()?>dashboard/detail/<?= $data['nim']?>" class="btn btn-primary" role="button">Lihat Nilai</a> <a href="#" class="btn btn-danger" role="button">Hapus</a></p>
-					      </div>
-					    </div>
-					  </div>
+				<div class="col-sm-3 col-md-3">
+					<div class="card mb-4 text-center">
+						<div class="text-center">
+							<img src="<?= base_url();?>assets/img/mahasiswa/<?= $data['gambar']?>" class="mt-3" style="width:150px;">
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">
+								<?= $data['nama'];?><br>
+								<small class="card-text">NIM: <?= $data['nim']?></small>
+							</h5>
+							<a href="<?= base_url();?>mahasiswa/detail/<?= $data['nim']?>" class="btn btn-primary btn-sm">Lihat Nilai</a>
+							<a href="<?= base_url();?>mahasiswa/edit/<?= $data['nim']?>" class="btn btn-warning btn-sm">Edit</a>
+							<a href="<?= base_url();?>mahasiswa/delete/<?= $data['nim']?>" class="btn btn-danger btn-sm">Delete</a>
+						</div>
+					</div>
+				</div>
 			    <?php endforeach; ?>
 		    </div>
 		<?php }else{ ?>

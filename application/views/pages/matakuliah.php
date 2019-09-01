@@ -1,7 +1,20 @@
 <div class="container">
 
-		<?= $this->session->flashdata('flash')?>	
-		
+	<nav aria-label="breadcrumb">	
+		<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="<?= base_url()?>"><span class="fas fa-home"></span></a></li>
+				<li class="breadcrumb-item active">Mata Kuliah</li>
+		</ol>
+	</nav>
+
+	<?= $this->session->flashdata('flash')?>
+
+	<div class="row mb-4">
+		<div class="col-md-12">
+			<a href="<?= base_url()?>matakuliah/tambah" class="btn btn-primary float-right">Tambah Mata Kuliah</a>
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table table-bordered" id="table">

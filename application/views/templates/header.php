@@ -5,54 +5,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Custom fonts for this template-->
+    <link href="<?= base_url();?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this page -->
+    <link href="<?= base_url();?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>assets/css/style.css">
 
-   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap.min.css">
-
-    <title>Nilai App</title>
+    <title><?= $title?></title>
   </head>
   <body>
 
-   <nav class="navbar navbar-inverse" style="border-radius: 0">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <div class="container">
+      <a class="navbar-brand" href="<?= base_url();?>">Nilai App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Nilai App</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url();?>">Dashboard</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Data
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<?= base_url();?>mahasiswa">Data Mahasiswa</a>
+              <a class="dropdown-item" href="<?= base_url();?>matakuliah">Data Matakuliah</a>
+              <a class="dropdown-item" href="<?= base_url();?>fakultas">Data Fakultas</a>
+              <a class="dropdown-item" href="<?= base_url();?>prodi">Data Prodi</a>
+            </div>
+            
+          </li>
+          <form class="form-inline ml-3" action="<?= base_url();?>dashboard/search" method="get">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
+          </form>
+        </ul>
+        <a href="<?= base_url();?>auth/logout" class="btn btn-danger btn-sm"><span class="fas fa-sign-out-alt"></span> Logout</a>
+      </div>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="<?= base_url()?>">Dashboard</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data<span class="caret"></span></a>
-          <ul class="dropdown-menu">            
-            <li><a href="<?= base_url('mahasiswa')?>">Data Mahasiswa</a></li>
-            <li><a href="<?= base_url('matakuliah')?>">Data Matakuliah</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search" action="<?= base_url()?>dashboard/search" method="GET">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="keyword">
-        </div>
-      </form>
-      <ul class="nav navbar-nav">
-        <li><a href="<?= base_url()?>mahasiswa/tambah"><span class="glyphicon glyphicon-plus"></span> Mahasiswa</a></li>
-        <li><a href="<?= base_url()?>matakuliah/tambah"><span class="glyphicon glyphicon-plus"></span> MatKul</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?= base_url()?>auth/logout">Logout</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+  </nav>

@@ -1,9 +1,12 @@
 <div class="container">
 
-	<ol class="breadcrumb">
-  		<li><a href="<?= base_url()?>">Dashboard</a></li>
-  		<li class="active">Edit Mata Kuliah</li>
-	</ol>
+	<nav aria-label="breadcrumb">	
+		<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="<?= base_url()?>"><span class="fas fa-home"></span></a></li>
+				<li class="breadcrumb-item"><a href="<?= base_url()?>matakuliah">Mata Kuliah</a></li>
+				<li class="breadcrumb-item active"><?= $matakuliah[0]['nama_matkul']?></li>
+		</ol>
+	</nav>
 
 	<div class="row">
 		<div class="col-md-3"></div>
