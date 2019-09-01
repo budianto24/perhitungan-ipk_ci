@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2019 at 09:00 PM
+-- Generation Time: Jul 22, 2019 at 08:05 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `perhitungan_ipk`
+-- Database: `budianto_ci`
 --
 
 -- --------------------------------------------------------
@@ -41,10 +41,10 @@ CREATE TABLE `tb_mahasiswa` (
 --
 
 INSERT INTO `tb_mahasiswa` (`nim`, `nama`, `fakultas`, `prodi`, `gambar`) VALUES
-(2405982, 'Rafi Syahputra', 'Fakultas Teknologi Komunikasi dan Informatika', 'Sistem Informasi', '5d36076f94ad4.jpg'),
-(2405983, 'Ridwan', 'Fakultas Teknologi Komunikasi dan Informatika', 'Informatika', '5d360788db521.jpg'),
-(2405984, 'Ahmad Mujahid', 'Fakultas Teknologi Komunikasi dan Informatika', 'Sistem Informasi', '5d36079ec4e68.jpg'),
-(2405985, 'Ferdian Ahmad', 'Fakultas Teknologi Komunikasi dan Informatika', 'Sistem Informasi', '5d3607a909cdd.jpg');
+(2405982, 'Rafi Syahputra', '', '', ''),
+(2405983, 'Ridwan', '', '', ''),
+(2405984, 'Ahmad Mujahid', '', '', ''),
+(2405985, 'Ferdian Ahmad', '', '', '');
 
 -- --------------------------------------------------------
 
