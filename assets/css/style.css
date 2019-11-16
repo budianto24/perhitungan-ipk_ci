@@ -1,3 +1,7 @@
+body{
+  background-image: url(http://localhost/nilai_app_ci/assets/img/main.gif);
+}
+
 .card-counter{
     box-shadow: 2px 2px 10px #DADADA;
     padding: 20px 10px;
@@ -55,3 +59,7 @@
     display: block;
     font-size: 18px;
   }
+
+.card-shadow{
+  box-shadow: 2px 2px 10px #DADADA;
+}

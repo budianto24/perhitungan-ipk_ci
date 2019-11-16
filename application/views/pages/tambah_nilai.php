@@ -41,7 +41,7 @@
 			    </select>
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleInputPassword1">Nilai*</label>
+			    <label for="exampleInputPassword1">Nilai* (0-100)</label>
 				<input type="number" class="form-control" placeholder="ketik disini.." name="nilai">
 				<small><?php echo form_error('nilai'); ?></small>
 			  </div>

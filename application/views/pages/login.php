@@ -10,6 +10,7 @@
 
     <!-- Custom styles for this page -->
     <link href="<?= base_url();?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>assets/css/style.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>vendor/bootstrap/css/bootstrap.min.css">
@@ -18,12 +19,12 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-md-4"></div>
+      <div class="row justify-content-center">
         <div class="col-md-4" style="margin-top: 120px;">
+          <h1 class="text-center mb-3">Nilai App</h1>
         <?= $this->session->flashdata('flash')?>  
           <div class="card">
-            <h5 class="card-header text-center">Login Form</h5>
+            <h5 class="card-header text-center"><span class="fa fa-sign-in-alt"></span> Login Form</h5>
             <div class="card-body">
               <?= form_open()?>
                 <div class="form-group">
@@ -40,6 +41,7 @@
               <?= form_close()?>
             </div>
           </div>
+          <div class="text-center mt-5"><small>Copyright&copy;2019 Budianto</small></div>
         </div>
       </div>
     </div>

@@ -26,6 +26,21 @@
 				<small><?php echo form_error('nama_matkul'); ?></small>
 			  </div>
 			  <div class="form-group">
+			    <label>Fakultas</label>
+			    <select class="form-control" name="fakultas" id="fakultas">
+						<option value="">--Pilih--</option>
+					<?php foreach($fakultas as $f):?>
+						<option value="<?= $f['kode_fakultas']?>"><?= $f['nama_fakultas']?></option>
+					<?php endforeach;?>
+				</select>
+			  </div>
+			  <div class="form-group">
+			    <label>Prodi</label>
+			    <select class="form-control" name="prodi" id="prodi">
+					<option value="">--Pilih--</option>
+				</select>
+			  </div>
+			  <div class="form-group">
 			    <label for="exampleInputPassword1">SKS*</label>
 				<input type="number" class="form-control" placeholder="ketik disini.." name="sks">
 				<small><?php echo form_error('sks'); ?></small>

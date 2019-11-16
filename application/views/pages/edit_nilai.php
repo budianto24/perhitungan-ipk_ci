@@ -35,8 +35,9 @@
 			    <input type="text" class="form-control" placeholder="ketik disini.." value="<?= $data[0]['nama_matkul']?>" readonly>
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleInputPassword1">Nilai</label>
-			    <input type="text" class="form-control" placeholder="ketik disini.." name="nilai" value="<?= $data[0]['nilai']?>">
+			    <label for="exampleInputPassword1">Nilai* (0-100)</label>
+			    <input type="number" class="form-control" placeholder="ketik disini.." name="nilai" value="<?= $data[0]['nilai']?>">
+			    <small><?php echo form_error('nilai');?></small>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Proses</button>
 			<?= form_close()?>

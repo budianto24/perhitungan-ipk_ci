@@ -2,7 +2,7 @@
 		<div class="card mb-4">
 			<div class="card-body">
 					<h5 class="mb-0">
-						Menampilkan hasil untuk "<font color="blue"><?= $this->input->get('keyword');?></font>"
+						Menampilkan hasil untuk "<font color="blue"><?= htmlspecialchars($this->input->get('keyword'));?></font>"
 						<small class="float-right"><b><?= count($list);?></b> data yang ditemukan</small>
 					</h5>
 			</div>

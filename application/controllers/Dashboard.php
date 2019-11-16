@@ -12,10 +12,7 @@ class Dashboard extends CI_Controller {
 			redirect('auth');
 		}
 
-		$this->load->model('M_mahasiswa'); //Meload M_mahasiswa
-		$this->load->model('M_matkul'); //Meload M_mahasiswa
-		$this->load->model('M_fakultas'); //Meload M_mahasiswa
-		$this->load->model('M_prodi'); //Meload M_mahasiswa
+		$this->load->model('M_dashboard'); //Meload M_dashboard
 
 		$this->load->helper('form'); //Meload helper form
 	}
@@ -24,10 +21,8 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{	
 		$data['title'] = "Dashboard";
-		$data['mahasiswa'] = $this->M_mahasiswa->getAllData(); //Mengambil semua data Mahasiswa
-		$data['matakuliah'] = $this->M_matkul->getAllData(); //Mengambil semua data Mahasiswa
-		$data['fakultas'] = $this->M_fakultas->getAllData(); //Mengambil semua data Mahasiswa
-		$data['prodi'] = $this->M_prodi->getAllData(); //Mengambil semua data Mahasiswa
+		$data['data'] = $this->M_dashboard->dataTotal(); //Mengambil semua data total
+		$data['bars'] = $this->M_dashboard->getDataBars(); //Mengambil semua data Mahasiswa
 
 		$this->load->view('templates/header', $data); //Meload Header dan Navbar
 		$this->load->view('pages/dashboard', $data); //Meload Content
@@ -38,9 +33,10 @@ class Dashboard extends CI_Controller {
 	public function search()
 	{
 		$data['title'] = "Search";
-		$keyword = $this->input->get('keyword', true); //Data keyword yang dicari
+		$keyword = htmlspecialchars($this->input->get('keyword', true)); //Data keyword yang dicari
+		$this->load->model('M_mahasiswa'); //Meload M_mahasiswa
 		$data['list'] = $this->M_mahasiswa->getDataSearch($keyword); //Menampilkan hasil data yang dicari
-
+		
 		$this->load->view('templates/header', $data); //Meload Header dan Navbar
 		$this->load->view('pages/search',$data); //Meload Content
 		$this->load->view('templates/footer'); //Meload Footer

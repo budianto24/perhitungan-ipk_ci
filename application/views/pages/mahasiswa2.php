@@ -32,7 +32,11 @@
 					<div class="card-body">
 						<h5 class="card-title">
 							<?= $data['nama'];?><br>
-							<small class="card-text">NIM: <?= $data['nim']?></small>
+							<small class="card-text">
+								NIM: <?= $data['nim']?> / <?php if ($data['jenis_kelamin'] == 'Laki-Laki'){echo "L";}else{echo "P";}?><br>
+								<?= str_replace('Fakultas Teknik Komunikasi dan Infromatika', 'FTKI' ,$data['nama_fakultas'])?><br>
+								<?= $data['nama_prodi']?>
+							</small>
 						</h5>
 						<a href="<?= base_url();?>mahasiswa/detail/<?= $data['nim']?>" class="btn btn-primary btn-sm">Lihat Nilai</a>
 						<a href="<?= base_url();?>mahasiswa/edit/<?= $data['nim']?>" class="btn btn-warning btn-sm">Edit</a>

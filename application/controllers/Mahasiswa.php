@@ -42,6 +42,16 @@ class Mahasiswa extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
+	public function listProdi()
+	{
+		$kode_fakultas = $this->input->post('kode_fakultas');
+		// $kode_fakultas = "FK01";
+
+		$prodi = $this->db->get_where('tb_prodi', ['kode_fakultas' => $kode_fakultas])->result();
+
+		echo json_encode($prodi);
+	}
+
 	//Function untuk menambah data Mahasiswa
 	public function tambah()
 	{	

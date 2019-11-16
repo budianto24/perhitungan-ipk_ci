@@ -25,6 +25,15 @@ class Prodi extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function listProdi()
+    {
+        $kode_fakultas = $this->input->post('kode_fakultas');
+
+        $prodi = $this->db->get_where('tb_prodi', ['kode_fakultas' => $kode_fakultas])->result();
+
+        echo json_encode($prodi);
+    }
+
     public function tambah()
     {   
         $this->load->model('M_fakultas');

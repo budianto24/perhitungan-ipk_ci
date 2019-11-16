@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Custom fonts for this template-->
-    <link href="<?= base_url();?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url();?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">    
 
     <!-- Custom styles for this page -->
     <link href="<?= base_url();?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -14,6 +14,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>assets/css/style.css">
+
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
 
     <title><?= $title?></title>
   </head>
@@ -43,7 +45,7 @@
             
           </li>
           <form class="form-inline ml-3" action="<?= base_url();?>dashboard/search" method="get">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
+              <input class="form-control mr-sm-2" type="search" placeholder="Pencarian.." aria-label="Search" name="keyword">
           </form>
         </ul>
         <a href="<?= base_url();?>auth/logout" class="btn btn-danger btn-sm"><span class="fas fa-sign-out-alt"></span> Logout</a>

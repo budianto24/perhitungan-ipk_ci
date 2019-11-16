@@ -29,6 +29,15 @@ class Matakuliah extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
+	public function listProdi()
+	{
+		$kode_fakultas = $this->input->post('kode_fakultas');
+
+		$prodi = $this->db->get_where('tb_prodi', ['kode_fakultas' => $kode_fakultas])->result();
+
+		echo json_encode($prodi);
+	}
+
 	//Function untuk menambah data Matakuliah
 	public function tambah()
 	{
@@ -39,6 +48,10 @@ class Matakuliah extends CI_Controller {
 		//Kondisi jika semua syarat Form validation terpenuhi
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = "Tambah Data Matakuliah";
+
+			$this->load->model('M_fakultas'); //Meload model M_fakultas
+			$data['fakultas'] = $this->M_fakultas->getAllData(); //Menampilkan semua data Fakultas
+			
 			$this->load->view('templates/header', $data);
 			$this->load->view('pages/tambah_matkul');
 			$this->load->view('templates/footer');

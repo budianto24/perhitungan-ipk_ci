@@ -18,9 +18,9 @@ class M_nilai extends CI_Model {
 	public function addDataNilai()
 	{
 		$data = [
-			"nim"    		 => $this->input->post('nim', true),
-			"kode_matkul"    => $this->input->post('kode_matkul', true),
-			"nilai"     	 => $this->input->post('nilai', true)
+			"nim"    		 => htmlspecialchars($this->input->post('nim', true)),
+			"kode_matkul"    => htmlspecialchars($this->input->post('kode_matkul', true)),
+			"nilai"     	 => htmlspecialchars($this->input->post('nilai', true))
 		];
 		$this->db->insert('tb_nilai', $data);
 	}
@@ -28,10 +28,10 @@ class M_nilai extends CI_Model {
 	public function editDataNilai()
 	{
 		$data = [
-			"id"		=>$this->input->post('id', true),
-			"nilai"     => $this->input->post('nilai', true)
+			"id"		=> htmlspecialchars($this->input->post('id', true)),
+			"nilai"     => htmlspecialchars($this->input->post('nilai', true))
 		];
-		$this->db->where('id', $this->input->post('id'));
+		$this->db->where('id', htmlspecialchars($this->input->post('id')));
 		$this->db->update('tb_nilai', $data);
 	}
 

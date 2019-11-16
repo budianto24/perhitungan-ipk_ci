@@ -9,6 +9,7 @@ class M_mahasiswa extends CI_Model {
 		$this->db->from('tb_mahasiswa');
 		$this->db->join('tb_fakultas', 'tb_fakultas.kode_fakultas=tb_mahasiswa.kode_fakultas', 'left');
 		$this->db->join('tb_prodi', 'tb_prodi.kode_prodi=tb_mahasiswa.kode_prodi', 'left');
+		
 		return $this->db->get()->result_array();
 	}
 
@@ -30,6 +31,11 @@ class M_mahasiswa extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
+	public function viewByFakultas($kode_fakultas)
+	{
+		$query = $this->db->get_where('tb_prodi', ['kode_fakultas' => $kode_fakultas])->result();
+        return $query;
+	}
 
 	public function addDataMahasiswa()
 	{
@@ -50,10 +56,11 @@ class M_mahasiswa extends CI_Model {
 		}
 
 		$data = [
-			"nim"    		=> $this->input->post('nim', true),
-			"nama" 		   	=> $this->input->post('nama', true),
-			"kode_fakultas"	=> $this->input->post('fakultas', true),
-			"kode_prodi"	=> $this->input->post('prodi', true),
+			"nim"    		=> htmlspecialchars($this->input->post('nim', true)),
+			"nama" 		   	=> htmlspecialchars($this->input->post('nama', true)),
+			"jenis_kelamin" => htmlspecialchars($this->input->post('jenis_kelamin', true)),
+			"kode_fakultas"	=> htmlspecialchars($this->input->post('fakultas', true)),
+			"kode_prodi"	=> htmlspecialchars($this->input->post('prodi', true)),
 			"gambar"    	=> $picture,
 		];
 		$this->db->insert('tb_mahasiswa', $data);
@@ -82,13 +89,12 @@ class M_mahasiswa extends CI_Model {
 	    }
 
 		$data = [
-			"nim"	    	=> $this->input->post('nim', true),
-			"nama"  	  	=> $this->input->post('nama', true),
-			"kode_fakultas"	=> $this->input->post('fakultas', true),
-			"kode_prodi"	=> $this->input->post('prodi', true),
+			"nim"	    	=> htmlspecialchars($this->input->post('nim', true)),
+			"nama"  	  	=> htmlspecialchars($this->input->post('nama', true)),
+			"jenis_kelamin" => htmlspecialchars($this->input->post('jenis_kelamin', true)),
 			"gambar"    	=> $picture,
 		];
-		$this->db->where('nim', $this->input->post('nim'));
+		$this->db->where('nim', htmlspecialchars($this->input->post('nim')));
 		$this->db->update('tb_mahasiswa', $data);
 	}
 

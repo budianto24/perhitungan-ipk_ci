@@ -21,9 +21,9 @@ class M_prodi extends CI_Model {
 	public function addDataProdi()
 	{
 		$data = [
-			"kode_prodi"    => $this->input->post('kode_prodi', true),
-			"kode_fakultas"    => $this->input->post('kode_fakultas', true),
-			"nama_prodi"    => $this->input->post('nama_prodi', true)
+			"kode_prodi"	=> htmlspecialchars($this->input->post('kode_prodi', true)),
+			"kode_fakultas"	=> htmlspecialchars($this->input->post('kode_fakultas', true)),
+			"nama_prodi"    => htmlspecialchars($this->input->post('nama_prodi', true))
 		];
 		$this->db->insert('tb_prodi', $data);
 	}
@@ -31,8 +31,8 @@ class M_prodi extends CI_Model {
 	public function editDataProdi($kode)
 	{
 		$data = [
-			"kode_fakultas"    => $this->input->post('kode_fakultas', true),
-			"nama_prodi"    => $this->input->post('nama_prodi', true)
+			"kode_fakultas" => htmlspecialchars($this->input->post('kode_fakultas', true)),
+			"nama_prodi"    => htmlspecialchars($this->input->post('nama_prodi', true))
 		];
 		$this->db->where('kode_prodi', $kode);
 		$this->db->update('tb_prodi', $data);

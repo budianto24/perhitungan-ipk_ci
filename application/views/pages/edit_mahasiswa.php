@@ -25,20 +25,28 @@
 			    <input type="text" class="form-control" placeholder="ketik disini.." id="Nama" name="nama" value="<?= $data['nama']?>">
 			  </div>
 			  <div class="form-group">
-			    <label>Fakultas*</label>
-			    <select class="form-control" name="fakultas">
+			    <label>Jenis Kelamin</label>
+			    <select class="form-control" name="jenis_kelamin">
+						<option value="">--Pilih--</option>
+						<option value="Laki-Laki" <?php if($data['jenis_kelamin']=="Laki-Laki"){echo "selected";}?>>Laki-Laki</option>
+						<option value="Perempuan" <?php if($data['jenis_kelamin']=="Perempuan"){echo "selected";}?>>Perempuan</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+			    <label>Fakultas</label>
+			    <select class="form-control" name="fakultas" id="fakultas">
 						<option value="">--Pilih--</option>
 					<?php foreach($fakultas as $f):?>
-						<option value="<?= $f['kode_fakultas']?>" <?php if($data['kode_fakultas'] == $f['kode_fakultas']){echo "selected";}?>><?= $f['nama_fakultas']?></option>
+						<option value="<?= $f['kode_fakultas']?>" <?= $f['kode_fakultas']?>" <?php if($data['kode_fakultas'] == $f['kode_fakultas']){echo "selected";}?>><?= $f['nama_fakultas']?></option>
 					<?php endforeach;?>
 				</select>
 			  </div>
 			  <div class="form-group">
 			    <label>Prodi*</label>
-			    <select class="form-control" name="prodi">
+			    <select class="form-control" name="prodi" id="prodi">
 					<option value="">--Pilih--</option>
-					<?php foreach($prodi as $p):?>
-						<option value="<?= $p['kode_prodi']?>" <?php if($data['kode_prodi'] == $p['kode_prodi']){echo "selected";}?>><?= $p['nama_prodi']?></option>
+					<?php foreach($prodi as $f):?>
+						<option value="<?= $f['kode_prodi']?>" <?= $f['kode_prodi']?>" <?php if($data['kode_prodi'] == $f['kode_prodi']){echo "selected";}?>><?= $f['nama_prodi']?></option>
 					<?php endforeach;?>
 				</select>
 			  </div>

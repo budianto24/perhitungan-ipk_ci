@@ -18,13 +18,21 @@ class M_matkul extends CI_Model{
 		return $query->result_array();	
 	}
 
+	public function getDataByKode($kode_fakultas, $kode_prodi)
+	{
+		$query = $this->db->get_where('tb_matkul', ['kode_fakultas' => $kode_fakultas, 'kode_prodi' => $kode_prodi]);
+		return $query->result_array();
+	}
+
 
 	public function addDataMatkul()
 	{
 		$data = [
-			"kode_matkul" => $this->input->post('kode_matkul', true),
-			"nama_matkul" => $this->input->post('nama_matkul', true),
-			"sks" 		  => $this->input->post('sks', true)
+			"kode_matkul" 	=> htmlspecialchars($this->input->post('kode_matkul', true)),
+			"nama_matkul" 	=> htmlspecialchars($this->input->post('nama_matkul', true)),
+			"kode_fakultas" => htmlspecialchars($this->input->post('fakultas', true)),
+			"kode_prodi" 	=> htmlspecialchars($this->input->post('prodi', true)),
+			"sks" 		  	=> htmlspecialchars($this->input->post('sks', true))
 		];
 
 		$this->db->insert('tb_matkul', $data);
@@ -34,8 +42,8 @@ class M_matkul extends CI_Model{
 	public function editDataMatkul($kode_matkul)
 	{
 		$data = [			
-			"nama_matkul" => $this->input->post('nama_matkul', true),
-			"sks" 		  => $this->input->post('sks', true)
+			"nama_matkul" => htmlspecialchars($this->input->post('nama_matkul', true)),
+			"sks" 		  => htmlspecialchars($this->input->post('sks', true))
 		];
 
 		$this->db->where('kode_matkul', $kode_matkul);

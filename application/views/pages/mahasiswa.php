@@ -29,6 +29,7 @@
 	  					<th width="50px">Foto</th>
 	  					<th>NIM</th>
 	  					<th>Nama</th>
+	  					<th>JK</th>
 	  					<th>Fakultas</th>
 	  					<th>Prodi</th>
 	  					<th></th>
@@ -42,9 +43,16 @@
 						<td class="text-center"><img src="<?= base_url()?>assets/img/mahasiswa/<?= $data['gambar']?>" width="55px"></td>
 						<td><?= $data['nim']?></td>
 						<td><?= $data['nama']?></td>
-						<td><?= $data['nama_fakultas']?></td>
+						<td>
+							<?php if ($data['jenis_kelamin'] == 'Laki-Laki') {
+								echo "L";
+							}else{
+								echo "P";
+							}?>
+						</td>
+						<td><?= str_replace('Fakultas Teknik Komunikasi dan Infromatika', 'FTKI', $data['nama_fakultas'])?></td>
 						<td><?= $data['nama_prodi']?></td>
-						<td class="text-center"><a href="<?= base_url()?>mahasiswa/detail/<?= $data['nim']?>" class="btn btn-success btn-sm" role="button">Lihat Nilai</a> 
+						<td class="text-center"><a href="<?= base_url()?>mahasiswa/detail/<?= $data['nim']?>" class="btn btn-primary btn-sm" role="button">Lihat Nilai</a> 
 			        	<a href="<?= base_url()?>mahasiswa/edit/<?= $data['nim']?>" class="btn btn-warning  btn-sm" role="button">Edit</a> 
 			        	<a href="<?= base_url()?>mahasiswa/delete/<?= $data['nim']?>" class="btn btn-danger  btn-sm" role="button" onclick="return confirm('Yakin Ingin Mengapus Data?')">Delete</a></td>
 					</tr>

@@ -18,8 +18,8 @@ class M_fakultas extends CI_Model {
     public function addDataFakultas()
     {
         $data = [
-            'kode_fakultas' => $this->input->post('kode_fakultas'),
-            'nama_fakultas' => $this->input->post('nama_fakultas')
+            'kode_fakultas' => htmlspecialchars($this->input->post('kode_fakultas')),
+            'nama_fakultas' => htmlspecialchars($this->input->post('nama_fakultas'))
         ];
 
         $this->db->insert('tb_fakultas', $data);

@@ -23,8 +23,16 @@
 				<small><?php echo form_error('nama'); ?></small>
 			  </div>
 			  <div class="form-group">
+			    <label>Jenis Kelamin</label>
+			    <select class="form-control" name="jenis_kelamin">
+						<option value="">--Pilih--</option>
+						<option value="Laki-Laki">Laki-Laki</option>
+						<option value="Perempuan">Perempuan</option>
+				</select>
+			  </div>
+			  <div class="form-group">
 			    <label>Fakultas</label>
-			    <select class="form-control" name="fakultas">
+			    <select class="form-control" name="fakultas" id="fakultas">
 						<option value="">--Pilih--</option>
 					<?php foreach($fakultas as $f):?>
 						<option value="<?= $f['kode_fakultas']?>"><?= $f['nama_fakultas']?></option>
@@ -33,11 +41,8 @@
 			  </div>
 			  <div class="form-group">
 			    <label>Prodi</label>
-			    <select class="form-control" name="prodi">
+			    <select class="form-control" name="prodi" id="prodi">
 					<option value="">--Pilih--</option>
-					<?php foreach($prodi as $p):?>
-						<option value="<?= $p['kode_prodi']?>"><?= $p['nama_prodi']?></option>
-					<?php endforeach;?>
 				</select>
 			  </div>
 			  <div class="form-group">

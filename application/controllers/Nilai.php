@@ -23,10 +23,10 @@ class Nilai extends CI_Controller {
 	public function tambah($nim)
 	{
 		$data['mahasiswa'] = $this->M_mahasiswa->getDataByNim($nim);
-		$data['matkul'] = $this->M_matkul->getAllData();
+		$data['matkul'] = $this->M_matkul->getDataByKode($data['mahasiswa']['kode_fakultas'], $data['mahasiswa']['kode_prodi']);
 
 		$this->form_validation->set_rules('kode_matkul', 'Mata Kuliah', 'required');
-		$this->form_validation->set_rules('nilai', 'Nilai', 'required');
+		$this->form_validation->set_rules('nilai', 'Nilai', 'required|integer|max_length[3]|greater_than_equal_to[0]|less_than_equal_to[100]');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = "Tambah Data Nilai";
@@ -51,7 +51,7 @@ class Nilai extends CI_Controller {
 		$nim = $data['data'][0]['nim'];
 		$data['mahasiswa'] = $this->M_mahasiswa->getDataByNim($nim);
 
-		$this->form_validation->set_rules('nilai', 'Nilai', 'required');
+		$this->form_validation->set_rules('nilai', 'Nilai', 'required|integer|max_length[3]|greater_than_equal_to[0]|less_than_equal_to[100]');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = "Edit Data Nilai";
